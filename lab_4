@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    char string[15];
+    int count[26] = {0}, litera;
+    char x, y;
+
+    printf("podaj poczatkowa litere zakresu\n"); //podaje pierwsza litere zakresu
+    scanf(" %c", &x);
+    printf("podaj koncowa litere zakresu\n"); //podaje druga litere zakresu
+    scanf(" %c", &y);
+    for (int i = 0; i < 15; i++) {
+        string[i] = x + (rand() % (y - x + 1));
+        printf("%c", string[i]);
+    }       //wklada ranomowe litery alfabetu z zakresu do tablicy string[]
+    printf("\n");
+    for (int i = 0; i < 15; i++) {
+        litera = string[i] - 'a';
+        count[litera]++;
+    }       //zlicza pokolei litery w string[]
+    for (int i = 0; i < 15; i++) {
+        printf(" %c appears %d times\n", i + 'a', count[i]);
+    }yt
+    for (int i = 0; i < 14; i++) {                  //b
+        for (int f = 0; f < 14 - i; f++) {          //u
+            if (string[f] > string[f + 1]) {        //b
+                char swap = string[f];              //b
+                string[f] = string[f+1];            //l
+                string[f+1] = swap;                 //e
+            }                                       //
+            for (int i = 0; i < 15; i++)            //s
+                printf("%c", string[i]);            //o
+            printf("\n");                           //r
+        }                                           //t
+    }
+    for (int i = 0; i < 15; i++)
+        printf("%c", string[i]);
+}
