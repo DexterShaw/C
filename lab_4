@@ -1,5 +1,18 @@
 #include <stdio.h>
-
+void bubblesort(char array[], int x) {
+    for (int i = 0; i < x - 1; i++) {
+        for (int f = 0; f < x - 1 - i; f++) {
+            if (array[f] > array[f + 1]) {
+                char swap = array[f];
+                array[f] = array[f + 1];
+                array[f + 1] = swap;
+            }
+            for (int i = 0; i < 15; i++)
+                printf("%c", array[i]);
+            printf("\n");
+        }
+    }
+}
 int main() {
     char string[15];
     int count[26] = {0}, litera;
@@ -7,8 +20,10 @@ int main() {
 
     printf("podaj poczatkowa litere zakresu\n"); //podaje pierwsza litere zakresu
     scanf(" %c", &x);
+
     printf("podaj koncowa litere zakresu\n"); //podaje druga litere zakresu
     scanf(" %c", &y);
+
     for (int i = 0; i < 15; i++) {
         string[i] = x + (rand() % (y - x + 1));
         printf("%c", string[i]);
@@ -18,21 +33,28 @@ int main() {
         litera = string[i] - 'a';
         count[litera]++;
     }       //zlicza pokolei litery w string[]
+
     for (int i = 0; i < 15; i++) {
         printf(" %c appears %d times\n", i + 'a', count[i]);
-    }yt
-    for (int i = 0; i < 14; i++) {                  //b
-        for (int f = 0; f < 14 - i; f++) {          //u
-            if (string[f] > string[f + 1]) {        //b
-                char swap = string[f];              //b
-                string[f] = string[f+1];            //l
-                string[f+1] = swap;                 //e
-            }                                       //
-            for (int i = 0; i < 15; i++)            //s
-                printf("%c", string[i]);            //o
-            printf("\n");                           //r
-        }                                           //t
     }
+    bubblesort(string, 15);
+//    for (int i = 0; i < 14; i++) {                  //b
+//        for (int f = 0; f < 14 - i; f++) {          //u
+//            if (string[f] > string[f + 1]) {        //b
+//                char swap = string[f];              //b
+//                string[f] = string[f+1];            //l
+//                string[f+1] = swap;                 //e
+//            }                                       //
+//            for (int i = 0; i < 15; i++)            //s
+//                printf("%c", string[i]);            //o
+//            printf("\n");                           //r
+//        }                                           //t
+//    }
     for (int i = 0; i < 15; i++)
-        printf("%c", string[i]);
+        if (string[i]=='a'||string[i]=='e'||string[i]=='i'||string[i]=='o'||string[i]=='u'||string[i]=='y'){
+            string[i]='#';
+        }
+
+    for (int i = 0; i < 15; i++)
+        printf("%c",string[i]);
 }
